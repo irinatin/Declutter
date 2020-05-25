@@ -10,3 +10,5 @@ CREATE TABLE users (
  salt varchar(256) NOT NULL
  
  );
+
+COMMIT;

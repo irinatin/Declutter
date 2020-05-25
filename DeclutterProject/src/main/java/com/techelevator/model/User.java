@@ -16,8 +16,6 @@ public class User {
 	
 	private String confirmPassword;
 	
-//	@NotBlank(message= "Role is required")
-//	private String role;
 	
 	@AssertTrue(message = "Passwords must match")
     private boolean isPasswordMatching() {
@@ -59,13 +57,7 @@ public class User {
 		this.confirmPassword = confirmPassword;
 	}
 
-//	public String getRole() {
-//		return role;
-//	}
-//
-//	public void setRole(String role) {
-//		this.role = role;
-//	}
+
 
 	
 	

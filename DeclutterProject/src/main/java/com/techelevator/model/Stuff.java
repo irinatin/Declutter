@@ -1,28 +1,31 @@
 package com.techelevator.model;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 public class Stuff {
 	
-	private long stuffId;
+	private long itemId;
 	
 	private long categoryId;
 	
 	private String item;
 	
-	private int quantity;
+	private long familyId;
 	
-	private BigDecimal pricePerItem = new BigDecimal(0);
 	
-	private Date dateBought;
-
-	public long getStuffId() {
-		return stuffId;
+	
+	public long getItemId() {
+		return itemId;
 	}
 
-	public void setStuffId(long stuffId) {
-		this.stuffId = stuffId;
+	public long getFamilyId() {
+		return familyId;
+	}
+
+	public void setFamilyId(long familyId) {
+		this.familyId = familyId;
+	}
+
+	public void setItemId(long itemId) {
+		this.itemId = itemId;
 	}
 
 	public long getCategoryId() {
@@ -41,28 +44,6 @@ public class Stuff {
 		this.item = item;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public BigDecimal getPricePerItem() {
-		return pricePerItem;
-	}
-
-	public void setPricePerItem(BigDecimal pricePerItem) {
-		this.pricePerItem = pricePerItem;
-	}
-
-	public Date getDateBought() {
-		return dateBought;
-	}
-
-	public void setDateBought(Date dateBought) {
-		this.dateBought = dateBought;
-	}
+	
 
 }
