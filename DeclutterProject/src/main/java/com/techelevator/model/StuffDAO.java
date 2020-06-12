@@ -1,3 +1,5 @@
+package com.techelevator.model;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -18,6 +20,8 @@ public interface StuffDAO {
 	public BigDecimal findItemByPrice(BigDecimal price);
 	
 	public List<Stuff> getItemsByCategory(long categoryId);
+	
+	
 	
 	
 
