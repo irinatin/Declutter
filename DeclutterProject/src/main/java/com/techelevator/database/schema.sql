@@ -41,6 +41,21 @@ CONSTRAINT pk_stuff_id PRIMARY KEY (stuff_id)
  --add foregn keys for category id and family id
  );
  
+ CREATE TABLE user_stuff (
+  buying_event_id serial NOT NULL,
+  user_id int NOT NULL,
+  stuff_id int NOT NULL,
+  buying_event_date date NOT NULL,
+  buying_event_price_per_item money,
+  buying_event_total money,
+  --reading_date date NOT NULL,
+  --reading_format varchar(100) NOT NULL,
+
+  CONSTRAINT pk_buying_event_id PRIMARY KEY(buying_event_id),
+  CONSTRAINT fk_id FOREIGN KEY (user_id) REFERENCES users (id),
+  CONSTRAINT fk_stuff_id FOREIGN KEY (stuff_id) REFERENCES stuff (stuff_id)
+);
+ 
 
  
 
