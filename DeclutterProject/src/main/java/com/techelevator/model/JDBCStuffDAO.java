@@ -13,6 +13,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class JDBCStuffDAO implements StuffDAO{
+	
+private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public JDBCStuffDAO(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
 
 	@Override
 	public boolean addNewStuff(Stuff stuffItem, long familyId) {
