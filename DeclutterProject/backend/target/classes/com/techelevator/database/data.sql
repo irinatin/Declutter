@@ -1,0 +1,4 @@
+BEGIN;
+
+INSERT INTO users
+VALUES (DEFAULT, )
