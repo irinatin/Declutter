@@ -5,7 +5,7 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 
 import com.techelevator.model.User;
-import com.techelevator.model.UserDao;
+import com.techelevator.model.UserDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,11 +17,11 @@ import org.springframework.stereotype.Component;
 public class RequestAuthProvider implements AuthProvider {
 
     private HttpServletRequest request;
-    private UserDao dao;
+    private UserDAO dao;
     public final static String USER_KEY = "appCurrentUser";
 
     @Autowired
-    public RequestAuthProvider(HttpServletRequest request, UserDao dao) {
+    public RequestAuthProvider(HttpServletRequest request, UserDAO dao) {
         this.request = request;
         this.dao = dao;
     }
@@ -59,7 +59,7 @@ public class RequestAuthProvider implements AuthProvider {
             return false;
         }
         User userFromDb = dao.getValidUserWithPassword(userFromSession.getUsername(), existingPassword);
-        if (userFromDb != null && userFromDb.getId() == userFromDb.getId()) {
+        if (userFromDb != null && userFromDb.getUserId() == userFromDb.getUserId()) {
             dao.changePassword(userFromSession, newPassword);
             return true;
         } else {
@@ -72,13 +72,19 @@ public class RequestAuthProvider implements AuthProvider {
         dao.saveUser(username, password, role);
     }
 
-    @Override
-    public boolean userHasRole(String[] roles) {
-        User currentUser = getCurrentUser();
-        if (currentUser != null && roles != null) {
-            return Arrays.asList(roles).contains(currentUser.getRole());
-        } else {
-            return false;
-        }
-    }
+	@Override
+	public boolean userHasRole(String[] roles) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+//    @Override
+//    public boolean userHasRole(String[] roles) {
+//        User currentUser = getCurrentUser();
+//        if (currentUser != null && roles != null) {
+//            return Arrays.asList(roles).contains(currentUser.getRole());
+//        } else {
+//            return false;
+//        }
+//    }
 }

@@ -2,8 +2,8 @@ package com.techelevator.model;
 
 import java.util.List;
 
-public interface UserDao {
-
+public interface UserDAO {
+	
     /**
      * Save a new user to the database. The password that is passed in will be
      * salted and hashed before being saved. The original password is never
@@ -37,10 +37,7 @@ public interface UserDao {
 
     public User getUserByUsername(String username);
     
-    public List<User> getAllFriends(String username);
-    
     public void deleteUser (Long userId);
-    
-    public List<UserFirst> getAllUsersByFamily(Long userId);
+   
 
 }

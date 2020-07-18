@@ -12,7 +12,7 @@ import static org.mockito.Mockito.when;
 import javax.servlet.http.HttpServletRequest;
 
 import com.techelevator.model.User;
-import com.techelevator.model.UserDao;
+import com.techelevator.model.UserDAO;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,12 +26,12 @@ import org.junit.runners.MethodSorters;
 public class RequestAuthProviderTest {
     private RequestAuthProvider sut;
     private HttpServletRequest mockedRequest;
-    private UserDao mockedDao;
+    private UserDAO mockedDao;
 
     @Before
     public void before() {
         mockedRequest = mock(HttpServletRequest.class);
-        mockedDao = mock(UserDao.class);
+        mockedDao = mock(UserDAO.class);
         sut = new RequestAuthProvider(mockedRequest, mockedDao);
     }
 
@@ -59,14 +59,14 @@ public class RequestAuthProviderTest {
     @Test
     public void getCurrentUserWithUserTest() {
         User mockedUser = new User();
-        mockedUser.setId(0);
+        mockedUser.setUserId(0);
         mockedUser.setUsername("TEST");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(mockedUser);
 
         User fromSut = sut.getCurrentUser();
 
-        assertEquals(mockedUser.getId(), fromSut.getId());
+        assertEquals(mockedUser.getUserId(), fromSut.getUserId());
         assertEquals(mockedUser.getUsername(), fromSut.getUsername());
     }
 
@@ -89,7 +89,7 @@ public class RequestAuthProviderTest {
     @Test
     public void signInSuccessTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
         when(mockedDao.getValidUserWithPassword("TEST", "TEST")).thenReturn(testUser);
 
@@ -107,7 +107,7 @@ public class RequestAuthProviderTest {
     @Test
     public void changePasswordSuccessTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(testUser);
@@ -120,7 +120,7 @@ public class RequestAuthProviderTest {
     @Test
     public void changePasswordBadPasswordTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(testUser);
@@ -133,7 +133,7 @@ public class RequestAuthProviderTest {
     @Test
     public void changePasswordNoOneLoggedInTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(null);
@@ -146,9 +146,9 @@ public class RequestAuthProviderTest {
     @Test
     public void hasRoleSuccessTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
-        testUser.setRole("user");
+       // testUser.setRole("user");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(testUser);
 
@@ -158,9 +158,9 @@ public class RequestAuthProviderTest {
     @Test
     public void hasRoleFailTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
-        testUser.setRole("user");
+        //testUser.setRole("user");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(testUser);
 
@@ -170,9 +170,9 @@ public class RequestAuthProviderTest {
     @Test
     public void hasRoleMultipleSuccessTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
-        testUser.setRole("user");
+       // testUser.setRole("user");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(testUser);
 
@@ -182,9 +182,9 @@ public class RequestAuthProviderTest {
     @Test
     public void hasRoleMultipleFailTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
-        testUser.setRole("user");
+       // testUser.setRole("user");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(testUser);
 
@@ -194,9 +194,9 @@ public class RequestAuthProviderTest {
     @Test
     public void hasRoleNullTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
-        testUser.setRole("user");
+      //  testUser.setRole("user");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(testUser);
 
@@ -206,9 +206,9 @@ public class RequestAuthProviderTest {
     @Test
     public void hasRoleEmptyTest() {
         User testUser = new User();
-        testUser.setId(0);
+        testUser.setUserId(0);
         testUser.setUsername("TEST");
-        testUser.setRole("user");
+       // testUser.setRole("user");
 
         when(mockedRequest.getAttribute(RequestAuthProvider.USER_KEY)).thenReturn(testUser);
 

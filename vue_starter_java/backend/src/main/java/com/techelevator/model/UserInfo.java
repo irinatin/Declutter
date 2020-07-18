@@ -10,38 +10,11 @@ public class UserInfo {
 	
 	private String lastName;
 	
-	private String familyName;
-	
 	private long familyId;
 	
-	private boolean newFamily;
+	private String familyName;
 	
-	private String role;
-	
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public boolean isNewFamily() {
-		return newFamily;
-	}
-
-	public void setNewFamily(boolean newFamily) {
-		this.newFamily = newFamily;
-	}
-
-	public String getFamilyName() {
-		return familyName;
-	}
-
-	public void setFamilyName(String familyName) {
-		this.familyName = familyName;
-	}
-
+	private boolean ifNewFamily;
 
 	public long getUserInfoId() {
 		return userInfoId;
@@ -82,7 +55,22 @@ public class UserInfo {
 	public void setFamilyId(long familyId) {
 		this.familyId = familyId;
 	}
-	
+
+	public String getFamilyName() {
+		return familyName;
+	}
+
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+	}
+
+	public boolean isIfNewFamily() {
+		return ifNewFamily;
+	}
+
+	public void setIfNewFamily(boolean ifNewFamily) {
+		this.ifNewFamily = ifNewFamily;
+	}
 	
 	
 

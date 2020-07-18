@@ -1,35 +1,32 @@
 package com.techelevator.model;
 
+import java.math.BigDecimal;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class JDBCUserInfoDAO implements UserInfoDAO {
+public class JDBCHouseholdDAO implements HouseholdDAO {
 	
 private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public JDBCUserInfoDAO(DataSource dataSource) {
+	public JDBCHouseholdDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	@Override
-	public boolean saveUserInfo(String firstName, String lastName, Long familyId, Long userId) {
+	public int numberOfItemsPerHousehold(long familyId) {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
-	public Long getUserId(String userName) {
+	public BigDecimal amountSpentPerHousehold(long familyId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Long getFamilyId(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

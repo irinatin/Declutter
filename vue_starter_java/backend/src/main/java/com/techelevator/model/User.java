@@ -1,91 +1,62 @@
 package com.techelevator.model;
 
+
 import javax.validation.constraints.AssertTrue;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-/**
- * User
- */
+
 public class User {
-	private long id;
 	
-    @NotBlank(message = "Username is required")
-    private String username;
-    
-    @NotBlank(message = "Password is required")
-    private String password;
-    private String confirmPassword;
-    private boolean passwordMatching;
-
-    @NotBlank(message = "Role is required")
-    private String role;
-
-    @AssertTrue(message = "Passwords must match")
-    public boolean isPasswordMatching() {
+	private long userId;
+	
+	@NotBlank(message = "Username is required")
+	private String username;
+	
+	@NotBlank(message = "Password is required")
+	private String password;
+	
+	private String confirmPassword;
+	
+	
+	@AssertTrue(message = "Passwords must match")
+    private boolean isPasswordMatching() {
         if (password != null) {
             return password.equals(confirmPassword);
         }
         return true;
     }
-    
-    public String getPassword() {
-        return password;
-    }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
+	public long getUserId() {
+		return userId;
+	}
 
-    /**
-     * @return the username
-     */
-    public String getUsername() {
-        return username;
-    }
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
 
-    /**
-     * @return the id
-     */
-    public long getId() {
-        return id;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    /**
-     * @return the role
-     */
-    public String getRole() {
-        return role;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    /**
-     * @param role the role to set
-     */
-    public void setRole(String role) {
-        this.role = role;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    /**
-     * @param username the username to set
-     */
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-    
-    
 }

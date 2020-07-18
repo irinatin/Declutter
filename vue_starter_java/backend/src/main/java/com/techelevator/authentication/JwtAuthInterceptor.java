@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
 
 import com.techelevator.model.User;
-import com.techelevator.model.UserDao;
+import com.techelevator.model.UserDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMethod;
